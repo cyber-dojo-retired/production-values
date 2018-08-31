@@ -1,0 +1,33 @@
+version: 2
+jobs:
+
+  deploy-cyberdojo-to-prod:
+    docker:
+      - image: lfaoro/gcloud-kubectl-helm
+    steps:
+      - run:
+          name: authenticate with gcloud and deploy with helm
+          environment:
+            SERVICE_ACCOUNT: cyber-dojo-circleci-deploy@cyber-dojo-praqma.iam.gserviceaccount.com
+            KEYFILE: gcp-credentials.json
+            CLUSTER: test
+            ZONE: europe-west1-b
+            PROJECT: cyber-dojo-praqma
+          command: |
+            echo $GCP_K8S_CREDENTIALS > /gcp/gcp-credentials.json
+            gcloud auth activate-service-account "$SERVICE_ACCOUNT" --key-file=/gcp/gcp-credentials.json
+            gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE" --project "$PROJECT"
+            helm init --client-only
+            helm repo add praqma https://praqma-helm-repo.s3.amazonaws.com/
+            helm upgrade --install --namespace=prod -f values.yaml prod-cyber-dojo praqma/cyber-dojo
+
+workflows:
+  version: 2
+  build-publish-deploy:
+    jobs:
+      - deploy-image-to-beta:
+          context: cyberdojo-context
+          filters:
+            branches:
+              only:
+                  - master
