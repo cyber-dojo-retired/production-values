@@ -5,6 +5,7 @@ jobs:
     docker:
       - image: lfaoro/gcloud-kubectl-helm
     steps:
+      - checkout
       - run:
           name: authenticate with gcloud and deploy with helm
           environment:
