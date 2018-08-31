@@ -25,7 +25,7 @@ workflows:
   version: 2
   build-publish-deploy:
     jobs:
-      - deploy-image-to-beta:
+      - deploy-image-to-prod:
           context: cyberdojo-context
           filters:
             branches:
