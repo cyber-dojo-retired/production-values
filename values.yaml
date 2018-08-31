@@ -8,11 +8,11 @@ replicaCount:
 image:
   nginx:
     repository: cyberdojo/nginx
-    tag: latest
+    tag: 60bab5f
     pullPolicy: Always
   web:
     repository: cyberdojo/web
-    tag: latest
+    tag: 9652b87
     pullPolicy: Always
 
 service:
@@ -54,4 +54,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
