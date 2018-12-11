@@ -70,7 +70,7 @@ ingress:
     - www.cyber-dojo.org
   tls:
     - secretName: www-cyber-dojo-tls
-      issuer: letsencrypt-production
+      issuer: letsencrypt-staging
       hosts:
       - www.cyber-dojo.org
 
