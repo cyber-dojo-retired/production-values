@@ -68,11 +68,13 @@ ingress:
   path: /
   hosts:
     - www.cyber-dojo.org
+    - cyber-dojo.org
   tls:
     - secretName: www-cyber-dojo-tls
-      issuer: letsencrypt-production
+      issuer: letsencrypt-staging
       hosts:
       - www.cyber-dojo.org
+      - cyber-dojo.org
 
 resources:
   nginx:
