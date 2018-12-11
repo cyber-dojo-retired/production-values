@@ -67,12 +67,12 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - prod.cyber-dojo.org
+    - www.cyber-dojo.org
   tls:
-    - secretName: prod-cyber-dojo-tls
+    - secretName: www-cyber-dojo-tls
       issuer: letsencrypt-production
       hosts:
-      - prod.cyber-dojo.org
+      - www.cyber-dojo.org
 
 resources:
   nginx:
