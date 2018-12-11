@@ -8,34 +8,71 @@ replicaCount:
 image:
   nginx:
     repository: cyberdojo/nginx
-    tag: 60bab5f
+    tag: beta
     pullPolicy: Always
   web:
     repository: cyberdojo/web
-    tag: 9652b87
+    tag: beta
     pullPolicy: Always
+  starter:
+    repository: cyberdojo/starter-fat
+    tag: beta
+    pullPolicy: Always
+  saver:
+    repository: cyberdojo/saver
+    tag: beta
+    pullPolicy: Always
+  runner:
+    repository: cyberdojo/runner-stateless
+    tag: beta
+    pullPolicy: Always
+  differ:
+    repository: cyberdojo/differ
+    tag: beta
+    pullPolicy: Always
+  #zipper:
+  #  repository: cyberdojo/zipper
+  #  tag: beta
+  #  pullPolicy: Always
+
 
 service:
   nginx:
-    type: LoadBalancer
+    type: ClusterIP
     port: 80
   web:
     type: ClusterIP
     port: 3000
+  starter:
+    type: ClusterIP
+    port: 4527
+  saver:
+    type: ClusterIP
+    port: 4537
+  runner:
+    type: ClusterIP
+    port: 4597
+  differ:
+    type: ClusterIP
+    port: 4567
+  #zipper:
+  #  type: ClusterIP
+  #  port: 4587
 
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - prod.cyber-dojo.org
   tls: []
-  #  - secretName: chart-example-tls
+  #  - secretName: beta-cyber-dojo-tls
+  #    issuer: letsencrypt-staging
   #    hosts:
-  #      - chart-example.local
+  #      - beta.cyber-dojo.org
 
 resources:
   nginx:
@@ -47,7 +84,33 @@ resources:
     limits:
       memory: 2048Mi
     requests:
+      memory: 256Mi
+  starter:
+    limits:
+      memory: 128Mi
+    requests:
+      memory: 32Mi
+  saver:
+    limits:
+      memory: 256Mi
+    requests:
+      memory: 64Mi
+  runner:
+    limits:
       memory: 512Mi
+    requests:
+      memory: 256Mi
+  differ:
+    limits:
+      memory: 128Mi
+    requests:
+      memory: 128Mi
+  #zipper:
+  #  limits:
+  #    memory: 128Mi
+  #  requests:
+  #    memory: 128Mi
+
 
 nodeSelector: {}
 

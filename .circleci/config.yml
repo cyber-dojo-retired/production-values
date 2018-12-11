@@ -3,7 +3,7 @@ jobs:
 
   deploy-cyberdojo-to-prod:
     docker:
-      - image: lfaoro/gcloud-kubectl-helm
+      - image: cyberdojo/gcloud-kubectl-helm
     steps:
       - checkout
       - run:
