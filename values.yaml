@@ -68,11 +68,11 @@ ingress:
   path: /
   hosts:
     - prod.cyber-dojo.org
-  tls: []
-  #  - secretName: beta-cyber-dojo-tls
-  #    issuer: letsencrypt-staging
-  #    hosts:
-  #      - beta.cyber-dojo.org
+  tls:
+    - secretName: prod-cyber-dojo-tls
+      issuer: letsencrypt-staging
+      hosts:
+      - prod.cyber-dojo.org
 
 resources:
   nginx:
