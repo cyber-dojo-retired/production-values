@@ -70,7 +70,7 @@ ingress:
     - prod.cyber-dojo.org
   tls:
     - secretName: prod-cyber-dojo-tls
-      issuer: letsencrypt-prod
+      issuer: letsencrypt-production
       hosts:
       - prod.cyber-dojo.org
 
