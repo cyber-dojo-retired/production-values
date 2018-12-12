@@ -28,7 +28,7 @@ image:
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
-    tag: 971e0af
+    tag: "971e0af"
     pullPolicy: Always
   #zipper:
   #  repository: cyberdojo/zipper
