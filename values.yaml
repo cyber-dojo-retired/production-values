@@ -30,8 +30,8 @@ image:
     repository: cyberdojo/differ
     tag: "971e0af"
     pullPolicy: Always
-  ported:
-    repository: cyberdojo/ported
+  mapper:
+    repository: cyberdojo/mapper
     tag: beta
     pullPolicy: Always
   #zipper:
@@ -59,7 +59,7 @@ service:
   differ:
     type: ClusterIP
     port: 4567
-  ported:
+  mapper:
     type: ClusterIP
     port: 4547
   #zipper:
@@ -114,7 +114,7 @@ resources:
       memory: 128Mi
     requests:
       memory: 128Mi
-  differ:
+  mapper:
     limits:
       memory: 32Mi
     requests:
