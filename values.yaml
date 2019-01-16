@@ -12,7 +12,7 @@ image:
     pullPolicy: Always
   web:
     repository: cyberdojo/web
-    tag: "9663772"
+    tag: beta
     pullPolicy: Always
   starter:
     repository: cyberdojo/starter-fat
@@ -28,7 +28,7 @@ image:
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
-    tag: "971e0af"
+    tag: beta
     pullPolicy: Always
   mapper:
     repository: cyberdojo/mapper
