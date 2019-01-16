@@ -1,6 +1,9 @@
 # Default values for cyber-dojo.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+# tag: sha values must be quoted (to avoid floating point interpretation)
+# eg  tag: beta
+# eg  tag: "9663772"
 
 replicaCount:
   nginx: 1
