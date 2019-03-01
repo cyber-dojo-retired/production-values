@@ -10,7 +10,7 @@ replicaCount:
 
 persistence:
   saverVolumeSize: 500Gi
-  mapperVolumeSize: 1Gi
+  mapperVolumeSize: 5Gi
 
 image:
   nginx:
