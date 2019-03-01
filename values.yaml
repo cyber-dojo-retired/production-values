@@ -8,6 +8,10 @@
 replicaCount:
   nginx: 1
 
+persistence:
+  saverVolumeSize: 500Gi
+  mapperVolumeSize: 1Gi
+
 image:
   nginx:
     repository: cyberdojo/nginx
@@ -18,7 +22,7 @@ image:
     tag: beta
     pullPolicy: Always
   starter:
-    repository: cyberdojo/starter-fat
+    repository: cyberdojo/start-points
     tag: beta
     pullPolicy: Always
   saver:
