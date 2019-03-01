@@ -9,6 +9,7 @@ replicaCount:
   nginx: 1
 
 persistence:
+  storageClassName: "standard"
   saverVolumeSize: 500Gi
   mapperVolumeSize: 5Gi
 
