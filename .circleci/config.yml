@@ -20,7 +20,7 @@ jobs:
             gcloud container clusters get-credentials "$CLUSTER" --zone "$ZONE" --project "$PROJECT"
             helm init --client-only
             helm repo add praqma https://praqma-helm-repo.s3.amazonaws.com/
-            helm upgrade --install --version 0.2.1 --namespace=prod -f values.yaml prod-cyber-dojo praqma/cyber-dojo
+            helm upgrade --install --version 0.2.3 --namespace=prod -f values.yaml prod-cyber-dojo praqma/cyber-dojo
 
 workflows:
   version: 2
