@@ -16,7 +16,7 @@ persistence:
 image:
   nginx:
     repository: cyberdojo/nginx
-    tag: beta
+    tag: "825f899"
     pullPolicy: Always
   web:
     repository: cyberdojo/web
