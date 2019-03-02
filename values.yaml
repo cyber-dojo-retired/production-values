@@ -40,7 +40,7 @@ image:
     pullPolicy: Always
   mapper:
     repository: cyberdojo/mapper
-    tag: beta
+    tag: "d2e8398"
     pullPolicy: Always
   #zipper:
   #  repository: cyberdojo/zipper
