@@ -20,7 +20,7 @@ image:
     pullPolicy: Always
   web:
     repository: cyberdojo/web
-    tag: beta
+    tag: "846b948"
     pullPolicy: Always
   starter:
     repository: cyberdojo/start-points
