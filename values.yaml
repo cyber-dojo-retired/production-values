@@ -36,7 +36,7 @@ image:
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
-    tag: "99fa0b6"
+    tag: "45d23f7"
     pullPolicy: Always
   mapper:
     repository: cyberdojo/mapper
