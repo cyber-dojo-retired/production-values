@@ -32,7 +32,7 @@ image:
     pullPolicy: Always
   runner:
     repository: cyberdojo/runner-stateless
-    tag: "4aebab9"
+    tag: "1a2b2e0"
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
