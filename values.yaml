@@ -24,7 +24,7 @@ image:
     pullPolicy: Always
   starter:
     repository: cyberdojo/start-points
-    tag: beta
+    tag: "38e6014"
     pullPolicy: Always
   saver:
     repository: cyberdojo/saver
