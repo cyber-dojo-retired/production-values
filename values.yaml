@@ -36,7 +36,10 @@ image:
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
-    tag: "df30fa8"
+    #USER=nobody
+    #tag: "df30fa8"
+    #USER=root
+    tag: "faab181"
     pullPolicy: Always
   mapper:
     repository: cyberdojo/mapper
