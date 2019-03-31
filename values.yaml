@@ -26,6 +26,18 @@ image:
     repository: cyberdojo/start-points
     tag: "38e6014"
     pullPolicy: Always
+  custom:
+    repository: cyberdojo/custom
+    tag: beta
+    pullPolicy: Always
+  exercises:
+    repository: cyberdojo/exercises
+    tag: beta
+    pullPolicy: Always
+  languages:
+    repository: cyberdojo/languages
+    tag: beta
+    pullPolicy: Always
   saver:
     repository: cyberdojo/saver
     tag: beta
@@ -36,9 +48,6 @@ image:
     pullPolicy: Always
   differ:
     repository: cyberdojo/differ
-    #USER=nobody
-    #tag: "df30fa8"
-    #USER=root
     tag: "faab181"
     pullPolicy: Always
   mapper:
