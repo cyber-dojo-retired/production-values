@@ -1,0 +1,56 @@
+# Default values for cyber-dojo-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# app name
+fullnameOverride: "custom"
+
+# deployment spec
+replicaCount: 1
+
+
+volumes: 
+  - name: custom-tmp-dir
+    emptyDir: {}
+
+
+# containers
+# provide default values that you HAVE to overwrite in your values.yaml file
+containers: 
+  - name: custom
+    image: cyberdojo/custom
+    tag: "712a49e"
+    securityContext:
+      readOnlyRootFilesystem: true
+    volumeMounts:
+      - name: custom-tmp-dir
+        mountPath: /tmp
+        readOnly: false
+
+    resources: 
+      limits:
+       memory: 32Mi
+      requests:
+       memory: 32Mi
+    # livenessProbe:
+    #   path: /health
+    #   port: 80
+    # readinessProbe:
+    #   path: /health
+    #   port: 80
+
+envFromSecret: {}
+ 
+
+nodeSelector: {}
+
+affinity: {}
+
+tolerations: []
+
+# service
+service: 
+  port: 4526  
+
+  
+  

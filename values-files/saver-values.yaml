@@ -1,0 +1,69 @@
+# Default values for cyber-dojo-service.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+fullnameOverride: "saver"
+
+replicaCount: 1
+updateStrategy: "Recreate"
+
+service:
+  port: 4537
+
+pvc:
+  name: saver-data
+  storage: 500Gi
+  matchLabels:
+    target: "saver-prod"
+
+volumes:
+  - name: saver-tmp-dir
+    emptyDir: {}
+  - name: saver-data
+    persistentVolumeClaim:
+      claimName: saver-data
+
+initContainers:
+- name: volume-mount-hack
+  image: busybox
+  tag: latest
+  command: ["/bin/sh"]
+  args:
+    - "-c"
+    - "chown 19663:65533 /cyber-dojo"
+  volumeMounts:
+  - name: saver-data
+    mountPath: /cyber-dojo
+
+containers:
+  - name: saver
+    image: cyberdojo/saver
+    tag: "af876d6"
+    securityContext:
+      runAsUser: 19663
+      fsGroup: 65533
+    volumeMounts:
+      - name: saver-tmp-dir
+        mountPath: /tmp
+        readOnly: false
+      - name: saver-data
+        mountPath: /cyber-dojo
+    resources:
+      limits:
+       memory: 256Mi
+      requests:
+       memory: 256Mi
+    # livenessProbe:
+    #   path: /sha
+    #   port: 4537
+    # readinessProbe:
+    #   path: /ready?
+    #   port: 4537
+
+envFromSecret: {}
+
+nodeSelector: {}
+
+affinity: {}
+
+tolerations: []
