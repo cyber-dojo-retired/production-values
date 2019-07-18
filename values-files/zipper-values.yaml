@@ -2,12 +2,12 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-fullnameOverride: "differ"
+fullnameOverride: "zipper"
 
 replicaCount: 1
 
 volumes:
-  - name: differ-tmp-dir
+  - name: zipper-tmp-dir
     emptyDir:
       medium: Memory
       sizeLimit: "64Mi"
@@ -16,20 +16,20 @@ service:
   port: 4567
 
 containers:
-  - name: differ
-    image: cyberdojo/differ
+  - name: zipper
+    image: cyberdojo/zipper
     tag: ""
     securityContext:
       readOnlyRootFilesystem: true
     volumeMounts:
-      - name: differ-tmp-dir
+      - name: zipper-tmp-dir
         mountPath: /tmp
-        readOnly: false        
+        readOnly: false
     resources:
       limits:
-        memory: 128Mi
+        memory: 32Mi
       requests:
-        memory: 128Mi
+        memory: 32Mi
       livenessProbe:
         path: /sha
         port: 4567

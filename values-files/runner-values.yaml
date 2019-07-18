@@ -6,9 +6,6 @@ fullnameOverride: "runner"
 
 replicaCount: 1
 
-service:
-  port: 4597
-
 volumes:
   - name: runner-tmp-dir
     emptyDir:
@@ -19,10 +16,13 @@ volumes:
       path: /var/run/docker.sock
       type: File
 
+service:
+  port: 4597
+
 containers:
   - name: runner
     image: cyberdojo/runner
-    tag: "1c5a9d7"
+    tag: ""
     securityContext:
       readOnlyRootFilesystem: true
     volumeMounts:
@@ -33,15 +33,15 @@ containers:
         name: docker-socket
     resources:
       limits:
-       memory: 4Gi
+        memory: 4Gi
       requests:
-       memory: 4Gi
-    # livenessProbe:
-    #   path: /sha
-    #   port: 4597
-    # readinessProbe:
-    #   path: /ready?
-    #   port: 4597
+        memory: 4Gi
+      livenessProbe:
+        path: /sha
+        port: 4597
+      readinessProbe:
+        path: /ready?
+        port: 4597
 
 initContainers: {}
 
